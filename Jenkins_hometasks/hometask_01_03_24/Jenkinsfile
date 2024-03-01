@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Project') {
             steps {
+                sh 'ls -ls'
                 sh 'python3 --version'
                 sh 'python3 get_uniqes.py'
             }
