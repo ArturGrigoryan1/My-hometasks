@@ -13,5 +13,7 @@ def main():
     mst1 = input("write a first string: ")
     mst2 = input('write a second string: ')
     print(get_uniques(mst1,mst2))
-
-main()
+if __name__ == '__main__':
+    print("Hello world")
+    print("The uniques are")
+    main()
