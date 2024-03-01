@@ -1,0 +1,12 @@
+pipeline {
+    agent { label 'jenkins_agent' }
+
+    stages {
+        stage('Project') {
+            steps {
+                sh 'python3 --version'
+                sh 'python3 get_uniques.py'
+            }
+        }
+    }
+}
