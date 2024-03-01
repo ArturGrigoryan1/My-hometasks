@@ -10,8 +10,8 @@ def get_uniques(mstr1,mstr2):
 
 
 def main():
-    mst1 = "hello good and beautiful world"
-    mst2 = "hi good world"
+    mst1 = input("write a first string: ")
+    mst2 = input("write a second string: ")
     print(get_uniques(mst1,mst2))
 if __name__ == '__main__':
     print("Hello world")
