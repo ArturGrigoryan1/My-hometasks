@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh 'ls -ls'
                 sh 'python3 --version'
-                sh 'python3 get_uniqes.py'
+                sh 'python3 Jenkins_hometasks/hometask_01_03_24/get_uniqes.py'
             }
         }
     }
