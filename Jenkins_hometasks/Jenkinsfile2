@@ -1,13 +1,17 @@
 pipeline {
     agent any
-    options([
-    pipelineTriggers([
+    triggers {
         GenericTrigger(
-        causeString: 'Generic Cause', 
-        genericVariables: [[
-            defaultValue: '', key: 'ref', regexpFilter: '', value: '$.ref']], 
-            regexpFilterExpression: '', regexpFilterText: '', token: '', tokenCredentialId: ''
-        )])])
+         genericVariables: [
+          [key: 'ref', value: '$.ref']
+         ],
+         causeString: 'Triggered on $ref',
+         regexpFilterExpression: '',
+         regexpFilterText: '',
+         printContributedVariables: true,
+         printPostContent: true
+        )
+      }
     stages {
         stage('Hello') {
             when {
