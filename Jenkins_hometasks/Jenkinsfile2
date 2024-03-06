@@ -1,8 +1,18 @@
 pipeline {
     agent any
-
+    properties([
+    pipelineTriggers([
+        GenericTrigger(
+        causeString: 'Generic Cause', 
+        genericVariables: [[
+            defaultValue: '', key: 'ref', regexpFilter: '', value: '$.ref']], 
+            regexpFilterExpression: '', regexpFilterText: '', token: '', tokenCredentialId: ''
+        )])])
     stages {
         stage('Hello') {
+            when {
+                $ref == refs/heads/dev
+            }
             steps {
                 echo 'Hello World'
                 sh 'ls -la'
