@@ -15,7 +15,9 @@ pipeline {
     stages {
         stage('Hello') {
             when {
-                $ref == refs/heads/dev
+                expression {
+                    "$ref" == 'refs/heads/dev'
+                    }
             }
             steps {
                 echo 'Hello World'
