@@ -1,28 +1,20 @@
 pipeline {
-  agent any
-  triggers {
+    agent any
+    triggers {
     GenericTrigger(
-     genericVariables: [
-      [key: 'ref', value: '$.ref']
-     ],
-
+        genericVariables: [
+            [defaultValue: '', key: 'base', regexpFilter: '', value: '$.ref'],
+            ],
      causeString: 'Triggered on $ref',
-
-     printContributedVariables: true,
-     printPostContent: true,
-
-     silentResponse: false,
-     
-     shouldNotFlatten: false,
-
-     regexpFilterText: '$ref',
-     regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
-    )
+     token: 'test',
+     tokenCredentialId: '' )
   }
-  stages {
-    stage('Some step') {
-      steps {
-        sh "echo $ref"
-      }
-    }
-  }
+    stages {
+        stage('Check branch name') {
+            steps {
+                echo 'Hello world'
+                echo env.base
+            }
+        }
+        
+}
