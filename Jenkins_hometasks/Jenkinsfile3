@@ -5,7 +5,7 @@ pipeline {
         genericVariables: [
             [defaultValue: '', key: 'base', regexpFilter: '', value: '$.ref'],
             ],
-     causeString: 'Triggered on $ref',
+     causeString: 'Triggered on $base',
      token: 'test',
      tokenCredentialId: '' )
   }
