@@ -2,16 +2,12 @@ pipeline {
     agent any
     triggers {
         GenericTrigger(
-         genericVariables: [
-          [key: 'ref', value: '$.ref']
-         ],
-         causeString: 'Triggered on $ref',
-         regexpFilterExpression: '',
-         regexpFilterText: '',
-         printContributedVariables: true,
-         printPostContent: true
+            genericVariables: [
+                [key: 'targetBranchName', value: '$.body.pull_request.base.ref'],
+                [key: 'sourseBranchName', value: '$.body.pull_request.head.ref'],
+            ]
         )
-      }
+    }
     stages {
         stage('Hello') {
             when {
