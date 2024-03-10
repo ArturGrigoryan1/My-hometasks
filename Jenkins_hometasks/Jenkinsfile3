@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    triggers {
+    GenericTrigger(
+        genericVariables: [
+            [defaultValue: '', key: 'base', regexpFilter: '', value: '$.ref'],
+            [defaultValue: '', key: 'action', regexpFilter: '', value: '$.action'],
+            [defaultValue: '', key: 'sender', regexpFilter: '', value: '$.pull_requests/head/ref'],
+            [defaultValue: '', key: 'recipient', regexpFilter: '', value: '$.pull_requests/base/ref']
+            ],
+     causeString: 'Triggered on $base',
+     token: 'test',
+     tokenCredentialId: '' )
+  }
+    stages {
+        stage('Check branch name') {
+            steps {
+                echo 'Hello world'
+                echo env.base
+                echo env.action
+                echo env.sender
+                echo env.recipient
+            }
+        }
+        
+}
+}

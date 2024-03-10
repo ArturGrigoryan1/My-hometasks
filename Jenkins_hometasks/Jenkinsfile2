@@ -1,8 +1,20 @@
 pipeline {
     agent any
-
+    triggers {
+        GenericTrigger(
+            genericVariables: [
+                [key: 'targetBranchName', value: '$.body.pull_request.base.ref'],
+                [key: 'sourseBranchName', value: '$.body.pull_request.head.ref'],
+            ]
+        )
+    }
     stages {
         stage('Hello') {
+            when {
+                expression {
+                    $ref == 'refs/heads/dev'
+                    }
+            }
             steps {
                 echo 'Hello World'
                 sh 'ls -la'
