@@ -5,8 +5,8 @@ pipeline {
         genericVariables: [
             [defaultValue: '', key: 'base', regexpFilter: '', value: '$.ref'],
             [defaultValue: '', key: 'action', regexpFilter: '', value: '$.action'],
-            [defaultValue: '', key: 'sender', regexpFilter: '', value: '$.pull_requests/head/ref'],
-            [defaultValue: '', key: 'recipient', regexpFilter: '', value: '$.pull_requests/base/ref']
+            [defaultValue: '', key: 'sender', regexpFilter: '', value: '$.pull_requests.head.ref'],
+            [defaultValue: '', key: 'recipient', regexpFilter: '', value: '$.pull_requests.base.ref']
             ],
      causeString: 'Triggered on $base',
      token: 'test',
